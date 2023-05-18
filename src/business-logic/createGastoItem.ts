@@ -14,7 +14,10 @@ export async function createGastoItem(item: Item): Promise<Item> {
         */
 
         item.id = uuid();
+        item.fecha = new Date().toLocaleString() + "";
+
         gastos.push(item);
+        
         await save("gastos", gastos);
         return item;
     } catch (err) {

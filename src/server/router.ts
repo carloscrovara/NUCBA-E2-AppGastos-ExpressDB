@@ -13,11 +13,7 @@ router.get("/", controllers.getGastosController );
 router.get("/:id", controllers.getGastoItemController);
 
 //Ruta para modificar un gasto
+router.put("/:id", controllers.updateGastoItemController);
 
 //Ruta para eliminar un gasto
-
-
-/*
-stockRouter.put("/:id", controllers.updateStockItemController);
-stockRouter.delete("/:id", controllers.deleteStockItemController);
-*/
+router.delete("/:id", controllers.deleteGastoItemController);
