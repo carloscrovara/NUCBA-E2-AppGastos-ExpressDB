@@ -1,7 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
 import * as controllers from "./controllers";
-//import { createItemValidator } from "./validators/validators";
-//import { query, body } from "express-validator";
 
 export const router = Router();
 
