@@ -10,6 +10,7 @@ datasource db {
 model categorias {
   id     String @id @default(dbgenerated("(uuid())")) @db.VarChar(36)
   nombre String @db.VarChar(255)
+  gastos gastos[]
 }
 
 model gastos {
@@ -18,4 +19,5 @@ model gastos {
   importe       Float    @db.Float
   descripcion   String   @db.VarChar(255)
   categoriaId   String   @db.VarChar(36)
+  categoria  categorias  @relation(fields: [categoriaId], references: [id])
 }
