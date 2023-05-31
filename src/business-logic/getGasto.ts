@@ -3,7 +3,9 @@ import { prisma } from "../repository/prisma";
 
 export async function getGastos(): Promise<Item[]> {
     try {
-        throw new Error("Error");
+        const items = await prisma()?.gastos.findMany();
+        return items;
+        //throw new Error("Error");
     } catch (err) {
         console.log(err);
         throw err;
