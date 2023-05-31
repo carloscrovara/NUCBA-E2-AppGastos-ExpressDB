@@ -12,12 +12,12 @@ router.post(
     body("descripcion").isString().notEmpty(),
     body("categoria").isString().optional(),
     validator,
-    controllers.createGastoItemController
+    controllers.createGastoController
 );
 
-//Rutas para obtener todos los gastos y para obtener un gasto
+//Rutas para obtener todos los gastos y para obtener un gasto por ID
 router.get("/", controllers.getGastosController );
-router.get("/:id", controllers.getGastoItemController);
+router.get("/:id", controllers.getGastoItemIdController);
 
 //Ruta para modificar un gasto
 router.put(
@@ -26,8 +26,8 @@ router.put(
     body("descripcion").isString().notEmpty(),
     body("categoria").isString().optional(),
     validator,    
-    controllers.updateGastoItemController
+    controllers.updateGastoController
 );
 
 //Ruta para eliminar un gasto
-router.delete("/:id", controllers.deleteGastoItemController);
+router.delete("/:id", controllers.deleteGastoController);

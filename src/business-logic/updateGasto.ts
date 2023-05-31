@@ -1,27 +1,26 @@
 import { Item } from "./types/Item";
-import { get, save } from "../repository/fileMethods";
+import { prisma } from "../repository/prisma";
 
-export async function updateGastoItem(item: Item) {
-    try {
-        if (!item.id) {
-            throw new Error("ID no provisto.");
+export async function updateGasto(id: string, item: Item) {
+        try {
+        if (id !== item.id) {
+            throw new Error("Id de gasto no encontrado.");
         }
-
-        const gastos = (await get("gastos")) as Item[];
-        const i = gastos.findIndex((gastoItem) => gastoItem.id === item.id);
-        
-        if (i === -1) {
-            throw new Error(`Item: ${item.id} no encontrado.`);
+        const db = prisma();
+        const udpatedItem = await db.gastos.update({
+            data: {
+                importe: item.importe,
+                descripcion: item.descripcion,
+                categoria: item.categoria ?? "",
+            },
+            where: {
+            id: id,
+            },
+        });
+    
+        return udpatedItem;
+        } catch (err) {
+            console.log(err);
+            throw err;
         }
-
-        gastos[i].importe = item.importe;
-        gastos[i].descripcion = item.descripcion;
-        gastos[i].categoria = item.categoria;
-
-        await save("gastos", gastos);
-        return item;
-    } catch (err) {
-        console.log(err);
-        throw err;
-    }
 }

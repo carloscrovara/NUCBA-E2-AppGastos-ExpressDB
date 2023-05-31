@@ -8,16 +8,6 @@ let prismaClient: PrismaClient<
 
 export function createPrismaClient() {
     prismaClient = new PrismaClient();
-    prismaClient.$use(async (params, next) => {
-        // Check incoming query type
-        if (params.action == "delete") {
-        // Delete queries
-        // Change action to an update
-        params.action = "update";
-        params.args["data"] = { deleted_at: new Date() };
-        }
-        return next(params);
-    });
     return prismaClient;
 }
 
