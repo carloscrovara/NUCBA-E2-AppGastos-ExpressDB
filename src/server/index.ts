@@ -1,6 +1,6 @@
 import express from "express";
 import { router } from "./router";
-import {createPrismaClient} from "./prisma"
+import { createPrismaClient } from "../repository/prisma";
 
 //Configuracion del puerto
 const PORT = process.env.PORT || 3000;

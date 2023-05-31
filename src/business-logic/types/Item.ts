@@ -3,16 +3,5 @@ export type Item = {
     fecha: string;
     importe: number;
     descripcion: string;
-    categoria: Categorias[];
+    categoria?: string;
 };
-
-export enum Categorias {
-    Servicios,
-    Impuestos, 
-    Transporte,
-    Educacion, 
-    Alimentacion,
-    Esparcimiento, 
-    Ropa,
-    Otros,
-}

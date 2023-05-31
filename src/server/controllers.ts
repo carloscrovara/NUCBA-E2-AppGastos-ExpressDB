@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
-import { createGastoItem } from "../business-logic/createGastoItem";
+import { createGastoItem } from "../business-logic/createGasto";
 import { getGastos, getGastoItem } from "../business-logic/getGasto";
-import { updateGastoItem } from "../business-logic/updateGastoItem";
-import { deleteGastoItem } from "../business-logic/deleteGastoItem";
+import { updateGastoItem } from "../business-logic/updateGasto";
+import { deleteGastoItem } from "../business-logic/deleteGasto";
 
 export const getGastosController = async (req: Request, res: Response) => {
     try {

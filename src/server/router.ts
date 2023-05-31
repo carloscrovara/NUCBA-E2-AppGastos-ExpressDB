@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from "express";
 import * as controllers from "./controllers";
-import { createItemValidator } from "./validators/validators";
+import { createItemValidator as validator } from "./validators/validators";
 import { body } from "express-validator";
 
 export const router = Router();
@@ -10,8 +10,8 @@ router.post(
     "/", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("categoria").isArray().notEmpty(),
-    createItemValidator,
+    body("categoria").isString().optional(),
+    validator,
     controllers.createGastoItemController
 );
 
@@ -24,8 +24,8 @@ router.put(
     "/:id", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("categoria").isArray().notEmpty(),
-    createItemValidator,    
+    body("categoria").isString().optional(),
+    validator,    
     controllers.updateGastoItemController
 );
 
