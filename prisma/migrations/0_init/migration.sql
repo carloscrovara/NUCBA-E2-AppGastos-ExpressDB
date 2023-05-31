@@ -1,6 +1,3 @@
-Need to install the following packages:
-  prisma@4.15.0
-Ok to proceed? (y) -- CreateTable
 CREATE TABLE `categorias` (
     `id` VARCHAR(36) NOT NULL DEFAULT (uuid()),
     `nombre` VARCHAR(255) NOT NULL,
