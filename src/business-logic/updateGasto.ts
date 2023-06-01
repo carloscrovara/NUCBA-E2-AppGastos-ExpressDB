@@ -11,7 +11,7 @@ export async function updateGasto(id: string, item: Item) {
             data: {
                 importe: item.importe,
                 descripcion: item.descripcion,
-                categoria: item.categoria ?? "",
+                categoriaId: item.categoriaId ?? "",
             },
             where: {
             id: id,
