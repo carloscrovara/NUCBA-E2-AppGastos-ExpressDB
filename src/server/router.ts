@@ -41,7 +41,7 @@ router.post(
 );
 
 //Rutas para obtener todas las categorias y para obtener una categoria por ID
-router.get("/categorias", controllers.getCategoriasController);
+router.get("/categorias/listado", controllers.getCategoriasController);
 router.get("/categoria/:id", controllers.getCategoriaIdController);
 
 //Ruta para modificar una categoria

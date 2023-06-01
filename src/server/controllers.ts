@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import { createGasto } from "../business-logic/createGasto";
 import { getGastos, getGastoItemId } from "../business-logic/getGasto";
 import { updateGasto } from "../business-logic/updateGasto";

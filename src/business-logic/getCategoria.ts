@@ -3,8 +3,8 @@ import { prisma } from "../repository/prisma";
 
 export async function getCategorias(): Promise<Categoria[]> {
     try {
-        const categorias = await prisma()?.categorias.findMany();
-        return categorias;
+        const items = await prisma()?.categorias.findMany();
+        return items;
     } catch (err) {
         console.log(err);
         throw err;
