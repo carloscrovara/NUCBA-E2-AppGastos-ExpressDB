@@ -5,7 +5,6 @@ export async function getGastos(): Promise<Item[]> {
     try {
         const items = await prisma()?.gastos.findMany();
         return items;
-        //throw new Error("Error");
     } catch (err) {
         console.log(err);
         throw err;
@@ -15,12 +14,12 @@ export async function getGastos(): Promise<Item[]> {
 export async function getGastoItemId(itemId: string): Promise<Item| null> {
     try {
         const db = prisma();
-        const product = await db.gastos.findUnique({
+        const item = await db.gastos.findUnique({
             where: {
                 id: itemId,
             },
-    });
-    return product;
+        });
+    return item;
     } catch (err) {
         console.log(err);
         throw err;

@@ -8,6 +8,13 @@ let prismaClient: PrismaClient<
 
 export function createPrismaClient() {
     prismaClient = new PrismaClient();
+    prismaClient.$use(async (params, next) => {
+        if (params.action == "delete") {
+            params.action = "update";
+            params.args["data"] = { fecha_eliminacion: new Date() };
+        }
+        return next(params);
+    });
     return prismaClient;
 }
 

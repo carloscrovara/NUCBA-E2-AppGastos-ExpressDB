@@ -11,6 +11,5 @@ export function createItemValidator(
         next();
         return;
     }
-
     res.status(400).json({ errors: result.array() });
 }

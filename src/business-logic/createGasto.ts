@@ -5,11 +5,11 @@ export async function createGasto(item: Item): Promise<Item> {
     try {
         const db = prisma();
         const createdItem = await db.gastos.create({
-        data: {
-            importe: item.importe,
-            descripcion: item.descripcion,
-            categoriaId: item.categoriaId ?? "",
-        },
+            data: {
+                importe: item.importe,
+                descripcion: item.descripcion,
+                categoria_id: item.categoria_id ?? "",
+            },
         });
     return createdItem;
     } catch (err) {

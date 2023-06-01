@@ -1,4 +1,4 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { Router } from "express";
 import * as controllers from "./controllers";
 import { createItemValidator as validator } from "./validators/validators";
 import { body } from "express-validator";
@@ -16,8 +16,8 @@ router.post(
 );
 
 //Rutas para obtener todos los gastos y para obtener un gasto por ID
-router.get("/", controllers.getGastosController );
-router.get("/:id", controllers.getGastoItemIdController);
+router.get("/", controllers.getGastosController);
+router.get("/:id", controllers.getGastoIdController);
 
 //Ruta para modificar un gasto
 router.put(
@@ -31,3 +31,26 @@ router.put(
 
 //Ruta para eliminar un gasto
 router.delete("/:id", controllers.deleteGastoController);
+
+//Ruta para crear una categoria
+router.post(
+    "/categoria", 
+    body("nombre").isString().notEmpty(),
+    validator,
+    controllers.createCategoriaController
+);
+
+//Rutas para obtener todas las categorias y para obtener una categoria por ID
+router.get("/categorias", controllers.getCategoriasController);
+router.get("/categoria/:id", controllers.getCategoriaIdController);
+
+//Ruta para modificar una categoria
+router.put(
+    "/categoria/:id", 
+    body("nombre").isString().notEmpty(),
+    validator,
+    controllers.updateCategoriaController
+); 
+
+//Ruta para eliminar una categoria
+router.delete("/categoria/:id", controllers.deleteCategoriaController);
