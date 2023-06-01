@@ -1,7 +1,7 @@
 import { Categoria } from "./types/Categoria";
 import { prisma } from "../repository/prisma";
 
-export async function getCategoria(): Promise<Categoria[]> {
+export async function getCategorias(): Promise<Categoria[]> {
     try {
         const categorias = await prisma()?.categorias.findMany();
         return categorias;

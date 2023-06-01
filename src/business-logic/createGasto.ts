@@ -8,7 +8,7 @@ export async function createGasto(item: Item): Promise<Item> {
             data: {
                 importe: item.importe,
                 descripcion: item.descripcion,
-                categoria_id: item.categoria_id ?? "",
+                categoriaId: item.categoriaId ?? "",
             },
         });
     return createdItem;

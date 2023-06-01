@@ -22,8 +22,8 @@ model gastos {
   fecha_creacion DateTime @default(now()) @db.Timestamp(0)
   importe       Float    @db.Float
   descripcion   String   @db.VarChar(255)
-  categoria_id   String   @db.VarChar(36)
-  categoria  categorias  @relation(fields: [categoria_id], references: [id])
+  categoriaId   String   @db.VarChar(36)
+  categoria  categorias  @relation(fields: [categoriaId], references: [id])
   fecha_modificacion DateTime @default(now()) @db.Timestamp(0) @updatedAt
   fecha_eliminacion DateTime? @db.Timestamp(0)
 }

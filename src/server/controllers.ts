@@ -4,7 +4,7 @@ import { getGastos, getGastoItemId } from "../business-logic/getGasto";
 import { updateGasto } from "../business-logic/updateGasto";
 import { deleteGasto } from "../business-logic/deleteGasto";
 import { createCategoria } from "../business-logic/createCategoria";
-import { getCategoria, getCategoriaId } from "../business-logic/getCategoria";
+import { getCategorias, getCategoriaId } from "../business-logic/getCategoria";
 import { updateCategoria } from "../business-logic/updateCategoria";
 import { deleteCategoria } from "../business-logic/deleteCategoria";
 
@@ -67,7 +67,7 @@ export const deleteGastoController = async (req: Request, res: Response) => {
 //CATEGORIAS
 export const getCategoriasController = async (req: Request, res: Response) => {
     try {
-        const result = await getCategoria();
+        const result = await getCategorias();
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });

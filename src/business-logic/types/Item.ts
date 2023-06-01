@@ -3,6 +3,6 @@ export type Item = {
     fecha_creacion: Date;
     importe: number;
     descripcion: string;
-    categoria_id?: string;
+    categoriaId?: string;
     fecha_modificacion: Date;
 };

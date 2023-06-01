@@ -6,7 +6,7 @@ export async function createCategoria(categoria: Categoria): Promise<Categoria> 
         const db = prisma();
         const createdCategory = await db.categorias.create({
             data: {
-                importe: categoria.nombre,
+                nombre: categoria.nombre,
             },
         });
     return createdCategory;
