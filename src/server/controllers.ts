@@ -7,6 +7,7 @@ import { createCategoria } from "../business-logic/createCategoria";
 import { getCategorias, getCategoriaId } from "../business-logic/getCategoria";
 import { updateCategoria } from "../business-logic/updateCategoria";
 import { deleteCategoria } from "../business-logic/deleteCategoria";
+import { getTotalGastos } from "../business-logic/getTotalGastos";
 
 //GASTOS
 export const getGastosController = async (req: Request, res: Response) => {
@@ -59,6 +60,15 @@ export const deleteGastoController = async (req: Request, res: Response) => {
         const id = req.params.id;
         await deleteGasto(id);
         res.status(204).send();
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+export const getTotalGastosController = async (req: Request, res: Response) => {
+    try {
+        const result = await getTotalGastos();
+        res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
