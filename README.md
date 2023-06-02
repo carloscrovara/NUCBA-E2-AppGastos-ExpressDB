@@ -1,4 +1,4 @@
-# CLI App de Gastos
+# App de Gastos - Express y DB MySQL
 
 ### Alumno: Carlos Crovara
 
