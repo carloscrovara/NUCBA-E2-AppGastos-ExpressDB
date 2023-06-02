@@ -10,7 +10,7 @@ router.post(
     "/", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("categoria").isString().optional(),
+    body("categoriaId").isString().optional(),
     validator,
     controllers.createGastoController
 );
@@ -24,7 +24,7 @@ router.put(
     "/:id", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("categoria").isString().optional(),
+    body("categoriaId").isString().optional(),
     validator,    
     controllers.updateGastoController
 );
