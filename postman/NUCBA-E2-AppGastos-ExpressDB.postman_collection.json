@@ -104,6 +104,39 @@
 			"response": []
 		},
 		{
+			"name": "Consultar total gastos por mes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/gastos/consulta/total/:anio/:mes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"consulta",
+						"total",
+						":anio",
+						":mes"
+					],
+					"variable": [
+						{
+							"key": "anio",
+							"value": ""
+						},
+						{
+							"key": "mes",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Crear un gasto",
 			"request": {
 				"method": "POST",
