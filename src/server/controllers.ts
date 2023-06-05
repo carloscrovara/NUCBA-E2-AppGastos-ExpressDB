@@ -8,6 +8,7 @@ import { getCategorias, getCategoriaId } from "../business-logic/getCategoria";
 import { updateCategoria } from "../business-logic/updateCategoria";
 import { deleteCategoria } from "../business-logic/deleteCategoria";
 import { getTotalGastos } from "../business-logic/getTotalGastos";
+import { getGastoMes } from "../business-logic/getGastoMes";
 
 //GASTOS
 export const getGastosController = async (req: Request, res: Response) => {
@@ -69,6 +70,22 @@ export const getTotalGastosController = async (req: Request, res: Response) => {
     try {
         const result = await getTotalGastos();
         res.json(result);
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+export const getGastoMesController = async (req: Request, res: Response) => {
+    try {
+        const anio = req.params.anio;
+        const mes = req.params.mes;
+        const result = await getGastoMes(anio, mes);
+        if (result) {
+            res.json(result);
+            return;
+        }
+        res.status(404).json({ message: `No se encontraron registros.` });
+        return;
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }

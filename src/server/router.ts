@@ -20,7 +20,10 @@ router.get("/", controllers.getGastosController);
 router.get("/:id", controllers.getGastoIdController);
 
 //Ruta para obtener el total de gastos
-router.get("/total/obtener", controllers.getTotalGastosController);
+router.get("/consulta/total", controllers.getTotalGastosController);
+
+//Ruta para consultar los gastos de un mes y año en particular
+router.get("/consulta/:anio/:mes", controllers.getGastoMesController);
 
 //Ruta para modificar un gasto
 router.put(
