@@ -8,7 +8,7 @@ import { getCategorias, getCategoriaId } from "../business-logic/getCategoria";
 import { updateCategoria } from "../business-logic/updateCategoria";
 import { deleteCategoria } from "../business-logic/deleteCategoria";
 import { getTotalGastos } from "../business-logic/getTotalGastos";
-import { getGastoMes } from "../business-logic/getGastoMes";
+import { getGastosMes } from "../business-logic/getGastosMes";
 import { getTotalGastosMes } from "../business-logic/getTotalGastosMes";
 
 //GASTOS
@@ -80,7 +80,7 @@ export const getGastoMesController = async (req: Request, res: Response) => {
     try {
         const anio = req.params.anio;
         const mes = req.params.mes;
-        const result = await getGastoMes(anio, mes);
+        const result = await getGastosMes(anio, mes);
         if (result) {
             res.json(result);
             return;

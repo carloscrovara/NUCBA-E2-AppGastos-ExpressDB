@@ -28,9 +28,13 @@ en Postman importar la colección de requests que se encuentra en la carpeta pos
 
 -> Eliminar un gasto en particular por ID en la base de datos.
 
+-> Consultar los gastos de un mes y año en particular en la base de datos.
+
+-> Consultar el importe total de gastos de un mes y año en particular en la base de datos.
+
 -> Consultar los importes totales de gastos realizados y que están guardados en la base de datos.
 
--> Crear una categoría con un nombre y guardarla en una base de datos.
+-> Crear una categoría con un nombre y guardarla en la base de datos.
 
 -> Consultar todas las categorías o una categoría en particular por ID en la base de datos.
 
