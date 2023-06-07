@@ -13,6 +13,8 @@ npm install
 
 crear archivo .env con las variables de entorno (conexión a bases de datos)
 
+npx prisma generate
+
 npm run dev
 
 en Postman importar la colección de requests que se encuentra en la carpeta postman del proyecto
